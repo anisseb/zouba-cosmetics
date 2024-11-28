@@ -36,6 +36,15 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {
+        "origin": false
+      },
+      "eas": {
+        "projectId": "cc8a9fa7-bd22-4f55-bc7d-3f6b7f6050b0"
+      }
+    },
+    "owner": "anisse3000"
   }
 }
