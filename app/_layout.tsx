@@ -9,7 +9,7 @@ export default function Layout() {
         },
       }}>
       {/* Optionally configure static options outside the route.*/}
-      <Stack.Screen name="HomeScreen" options={{}} />
+      <Stack.Screen name="Home/HomeScreen" options={{}} />
     </Stack>
   );
 }

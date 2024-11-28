@@ -3,7 +3,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { Ionicons } from '@expo/vector-icons';
 
 import HomeScreen from '../Home/HomeScreen';
-import CategoriesScreen from '../Categories/CategoriesScreen';
+import CategoriesNavigator from '../Categories/CategoriesNavigator';
 import CartScreen from '../Cart/CartScreen';
 import AccountScreen from '../Account/AccountScreen';
 
@@ -17,7 +17,7 @@ export default function TabNavigator() {
           elevation: 0,
           shadowOpacity: 0,
           borderBottomWidth: 0,
-          backgroundColor: '#f5f5f5',
+          backgroundColor: '#bdbdcc',
         },
         headerTitleStyle: {
           fontWeight: 'bold',
@@ -26,7 +26,7 @@ export default function TabNavigator() {
           elevation: 0,
           borderTopWidth: 1,
           borderTopColor: '#f0f0f0',
-          backgroundColor: 'white',
+          backgroundColor: '#bdbdcc',
           height: 70,
           paddingBottom: 8,
         },
@@ -53,7 +53,7 @@ export default function TabNavigator() {
           return <Ionicons name={iconName as any} size={size} color={color} />;
         },
         tabBarActiveTintColor: '#007AFF',
-        tabBarInactiveTintColor: 'gray',
+        tabBarInactiveTintColor: 'white',
         headerTitleAlign: 'center',
       })}
     >
@@ -66,9 +66,9 @@ export default function TabNavigator() {
       />
       <Tab.Screen 
         name="Categories" 
-        component={CategoriesScreen}
+        component={CategoriesNavigator}
         options={{
-          title: 'Categories',
+          title: 'Categories'
         }}
       />
       <Tab.Screen 
