@@ -1,13 +1,54 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import { Ionicons } from '@expo/vector-icons';
 
 import HomeScreen from '../Home/HomeScreen';
+import SearchScreen from '../Search/SearchScreen';
 import CategoriesNavigator from '../Categories/CategoriesNavigator';
 import CartScreen from '../Cart/CartScreen';
 import AccountScreen from '../Account/AccountScreen';
+import SearchHeader from '../Search/SearchHeader';
+import { RootTabParamList, HomeStackParamList, SearchStackParamList } from '../Search/types';
 
-const Tab = createBottomTabNavigator();
+const Tab = createBottomTabNavigator<RootTabParamList>();
+const HomeStack = createNativeStackNavigator<HomeStackParamList>();
+const SearchStack = createNativeStackNavigator<SearchStackParamList>();
+
+function HomeStackNavigator() {
+  return (
+    <HomeStack.Navigator>
+      <HomeStack.Screen
+        name="HomeScreen"
+        component={HomeScreen}
+        options={{
+          header: () => <SearchHeader />,
+        }}
+      />
+      <HomeStack.Screen
+        name="SearchResults"
+        component={SearchScreen}
+        options={{
+          title: 'Search Results',
+        }}
+      />
+    </HomeStack.Navigator>
+  );
+}
+
+function SearchStackNavigator() {
+  return (
+    <SearchStack.Navigator>
+      <SearchStack.Screen
+        name="SearchResults"
+        component={SearchScreen}
+        options={{
+          title: 'Search Results',
+        }}
+      />
+    </SearchStack.Navigator>
+  );
+}
 
 export default function TabNavigator() {
   return (
@@ -31,7 +72,7 @@ export default function TabNavigator() {
           paddingBottom: 8,
         },
         tabBarIcon: ({ focused, color, size }) => {
-          let iconName;
+          let iconName: keyof typeof Ionicons.glyphMap = 'help-outline';
 
           switch (route.name) {
             case 'Home':
@@ -46,44 +87,35 @@ export default function TabNavigator() {
             case 'Account':
               iconName = focused ? 'person' : 'person-outline';
               break;
-            default:
-              iconName = 'help-outline';
           }
 
-          return <Ionicons name={iconName as any} size={size} color={color} />;
+          return <Ionicons name={iconName} size={size} color={color} />;
         },
         tabBarActiveTintColor: '#007AFF',
-        tabBarInactiveTintColor: 'white',
-        headerTitleAlign: 'center',
+        tabBarInactiveTintColor: 'gray',
       })}
     >
       <Tab.Screen 
         name="Home" 
-        component={HomeScreen}
+        component={HomeStackNavigator}
         options={{
-          title: 'Home',
+          headerShown: true,
         }}
       />
       <Tab.Screen 
         name="Categories" 
         component={CategoriesNavigator}
         options={{
-          title: 'Categories'
+          headerShown: false,
         }}
       />
       <Tab.Screen 
         name="Cart" 
         component={CartScreen}
-        options={{
-          title: 'My Cart',
-        }}
       />
       <Tab.Screen 
         name="Account" 
         component={AccountScreen}
-        options={{
-          title: 'Profile',
-        }}
       />
     </Tab.Navigator>
   );

@@ -2,6 +2,7 @@ import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CategoriesScreen from './CategoriesScreen';
 import SubCategoryProductsScreen from './SubCategoryProductsScreen';
+import SearchHeader from '../Search/SearchHeader';
 
 export type CategoriesStackParamList = {
   CategoriesList: undefined;
@@ -27,7 +28,7 @@ export default function CategoriesNavigator() {
         name="CategoriesList"
         component={CategoriesScreen}
         options={{
-          headerShown: false
+          header: () => <SearchHeader />,
         }}
       />
       <Stack.Screen
