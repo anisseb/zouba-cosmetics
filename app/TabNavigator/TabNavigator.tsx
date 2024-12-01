@@ -9,48 +9,33 @@ import CategoriesNavigator from '../Categories/CategoriesNavigator';
 import CartScreen from '../Cart/CartScreen';
 import AccountScreen from '../Account/AccountScreen';
 import SearchHeader from '../Search/SearchHeader';
-import { RootTabParamList, HomeStackParamList, SearchStackParamList } from '../Search/types';
+import { RootTabParamList, HomeStackParamList } from '../navigation/types';
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
-const HomeStack = createNativeStackNavigator<HomeStackParamList>();
-const SearchStack = createNativeStackNavigator<SearchStackParamList>();
+const Stack = createNativeStackNavigator<HomeStackParamList>();
 
 function HomeStackNavigator() {
   return (
-    <HomeStack.Navigator>
-      <HomeStack.Screen
+    <Stack.Navigator>
+      <Stack.Screen
         name="HomeScreen"
         component={HomeScreen}
         options={{
           header: () => <SearchHeader />,
         }}
       />
-      <HomeStack.Screen
+      <Stack.Screen
         name="SearchResults"
         component={SearchScreen}
         options={{
           title: 'Search Results',
         }}
       />
-    </HomeStack.Navigator>
+    </Stack.Navigator>
   );
 }
 
-function SearchStackNavigator() {
-  return (
-    <SearchStack.Navigator>
-      <SearchStack.Screen
-        name="SearchResults"
-        component={SearchScreen}
-        options={{
-          title: 'Search Results',
-        }}
-      />
-    </SearchStack.Navigator>
-  );
-}
-
-export default function TabNavigator() {
+const TabNavigator: React.FC = () => {
   return (
     <Tab.Navigator
       screenOptions={({ route }) => ({
@@ -58,7 +43,7 @@ export default function TabNavigator() {
           elevation: 0,
           shadowOpacity: 0,
           borderBottomWidth: 0,
-          backgroundColor: '#bdbdcc',
+          backgroundColor: '#f5f5f5',
         },
         headerTitleStyle: {
           fontWeight: 'bold',
@@ -67,7 +52,7 @@ export default function TabNavigator() {
           elevation: 0,
           borderTopWidth: 1,
           borderTopColor: '#f0f0f0',
-          backgroundColor: '#bdbdcc',
+          backgroundColor: 'white',
           height: 70,
           paddingBottom: 8,
         },
@@ -99,7 +84,7 @@ export default function TabNavigator() {
         name="Home" 
         component={HomeStackNavigator}
         options={{
-          headerShown: true,
+          headerShown: false,
         }}
       />
       <Tab.Screen 
@@ -119,4 +104,6 @@ export default function TabNavigator() {
       />
     </Tab.Navigator>
   );
-}
+};
+
+export default TabNavigator;

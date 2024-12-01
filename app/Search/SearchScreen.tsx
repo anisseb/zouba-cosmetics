@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import ProductCard from '../components/ProductCard';
 import { useProducts } from '../hooks/useProducts';
 import { Product } from '../types';
-import { SearchScreenProps } from './types';
+import { SearchScreenProps } from '../navigation/types';
 
 const SearchScreen: React.FC<SearchScreenProps> = ({ route }) => {
   const { query } = route.params;

@@ -1,0 +1,17 @@
+{
+  "settings": {
+    "title": "Settings",
+    "language": "Language",
+    "notifications": "Notifications",
+    "privacy": "Privacy & Security"
+  },
+  "account": {
+    "editProfile": "Edit Profile",
+    "settings": "Settings",
+    "shippingAddress": "Shipping Address",
+    "paymentMethods": "Payment Methods",
+    "wishlist": "Wish List",
+    "orderHistory": "Order History",
+    "helpSupport": "Help & Support"
+  }
+}

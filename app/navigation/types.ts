@@ -28,9 +28,14 @@ export type CategoriesStackParamList = {
   SearchResults: { query: string };
 };
 
+export type SettingsStackParamList = {
+  SettingsList: undefined;
+  Language: undefined;
+};
+
 export type RootStackParamList = {
   Root: undefined;
-  Search: { query: string };
+  Settings: undefined;
 };
 
 export type RootTabScreenProps<T extends keyof RootTabParamList> = 
@@ -39,7 +44,9 @@ export type RootTabScreenProps<T extends keyof RootTabParamList> =
     NativeStackScreenProps<RootStackParamList>
   >;
 
-export type SearchScreenProps = NativeStackScreenProps<SearchStackParamList, 'SearchResults'>;
+export type SearchScreenProps = NativeStackScreenProps<SearchStackParamList | HomeStackParamList | CategoriesStackParamList, 'SearchResults'>;
 export type HomeScreenProps = NativeStackScreenProps<HomeStackParamList, 'HomeScreen'>;
 export type CategoriesScreenProps = NativeStackScreenProps<CategoriesStackParamList, 'CategoriesList'>;
 export type SubCategoryProductsScreenProps = NativeStackScreenProps<CategoriesStackParamList, 'SubCategoryProducts'>;
+export type AccountScreenProps = NativeStackScreenProps<RootStackParamList>;
+export type SettingsScreenProps = NativeStackScreenProps<SettingsStackParamList, 'SettingsList'>;

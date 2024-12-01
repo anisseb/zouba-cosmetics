@@ -1,8 +1,18 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
+import { useNavigation } from '@react-navigation/native';
+import { NativeStackNavigationProp } from '@react-navigation/native-stack';
+import { RootStackParamList } from '../navigation/types';
+import MenuItem from './MenuItem';
+import { useTranslation } from 'react-i18next';
 
-export default function AccountScreen() {
+type AccountScreenNavigationProp = NativeStackNavigationProp<RootStackParamList>;
+
+const AccountScreen: React.FC = () => {
+  const navigation = useNavigation<AccountScreenNavigationProp>();
+  const { t } = useTranslation();
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -12,26 +22,45 @@ export default function AccountScreen() {
       </View>
 
       <View style={styles.menuContainer}>
-        <MenuItem icon="person-outline" title="Edit Profile" />
-        <MenuItem icon="settings-outline" title="Settings" />
-        <MenuItem icon="location-outline" title="Shipping Address" />
-        <MenuItem icon="card-outline" title="Payment Methods" />
-        <MenuItem icon="time-outline" title="Order History" />
-        <MenuItem icon="help-circle-outline" title="Help & Support" />
+        <MenuItem 
+          icon="person-outline" 
+          title={t('account.editProfile')} 
+          onPress={() => {}}
+        />
+        <MenuItem 
+          icon="settings-outline" 
+          title={t('account.settings')} 
+          onPress={() => navigation.navigate('Settings')}
+        />
+        <MenuItem 
+          icon="location-outline" 
+          title={t('account.shippingAddress')} 
+          onPress={() => {}}
+        />
+        <MenuItem 
+          icon="card-outline" 
+          title={t('account.paymentMethods')} 
+          onPress={() => {}}
+        />
+        <MenuItem 
+          icon="star-outline" 
+          title={t('account.wishlist')} 
+          onPress={() => {}}
+        />
+        <MenuItem 
+          icon="time-outline" 
+          title={t('account.orderHistory')} 
+          onPress={() => {}}
+        />
+        <MenuItem 
+          icon="help-circle-outline" 
+          title={t('account.helpSupport')} 
+          onPress={() => {}}
+        />
       </View>
     </View>
   );
-}
-
-function MenuItem({ icon, title }: { icon: string; title: string }) {
-  return (
-    <TouchableOpacity style={styles.menuItem}>
-      <Ionicons name={icon as any} size={24} color="#333" />
-      <Text style={styles.menuText}>{title}</Text>
-      <Ionicons name="chevron-forward" size={24} color="#ccc" />
-    </TouchableOpacity>
-  );
-}
+};
 
 const styles = StyleSheet.create({
   container: {
@@ -57,16 +86,6 @@ const styles = StyleSheet.create({
     marginTop: 20,
     backgroundColor: 'white',
   },
-  menuItem: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    padding: 15,
-    borderBottomWidth: 1,
-    borderBottomColor: '#f0f0f0',
-  },
-  menuText: {
-    flex: 1,
-    marginLeft: 15,
-    fontSize: 16,
-  },
 });
+
+export default AccountScreen;

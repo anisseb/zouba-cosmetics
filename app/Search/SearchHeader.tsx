@@ -7,7 +7,7 @@ import SearchHistory from './SearchHistory';
 import SearchSuggestions from './SearchSuggestions';
 import { useSearch } from '../hooks/useSearch';
 import { useProducts } from '../hooks/useProducts';
-import { HomeStackParamList, CategoriesStackParamList } from './types';
+import { HomeStackParamList, CategoriesStackParamList } from '../navigation/types';
 import { Product } from '../types/index';
 
 type NavigationProp = NativeStackNavigationProp<HomeStackParamList | CategoriesStackParamList>;

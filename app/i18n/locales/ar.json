@@ -1,0 +1,17 @@
+{
+  "settings": {
+    "title": "الإعدادات",
+    "language": "اللغة",
+    "notifications": "الإشعارات",
+    "privacy": "الخصوصية والأمان"
+  },
+  "account": {
+    "editProfile": "تعديل الملف الشخصي",
+    "settings": "الإعدادات",
+    "shippingAddress": "عنوان الشحن",
+    "paymentMethods": "طرق الدفع",
+    "wishlist": "قائمة الرغبات",
+    "orderHistory": "سجل الطلبات",
+    "helpSupport": "المساعدة والدعم"
+  }
+}
