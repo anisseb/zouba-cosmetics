@@ -1,8 +1,8 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import SettingsScreen from './SettingsScreen';
-import LanguageScreen from './LanguageScreen';
-import { SettingsStackParamList } from '../navigation/types';
+import LanguageScreen from './Language/LanguageScreen';
+import { SettingsStackParamList } from '../../types/types';
 
 const Stack = createNativeStackNavigator<SettingsStackParamList>();
 

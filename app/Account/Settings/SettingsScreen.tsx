@@ -2,8 +2,8 @@ import React from 'react';
 import { View, StyleSheet } from 'react-native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
 import { useNavigation } from '@react-navigation/native';
-import MenuItem from './MenuItem';
-import { SettingsStackParamList } from '../navigation/types';
+import MenuItem from '../MenuItem';
+import { SettingsStackParamList } from '../../types/types';
 import { useTranslation } from 'react-i18next';
 
 type SettingsScreenNavigationProp = NativeStackNavigationProp<SettingsStackParamList, 'SettingsList'>;

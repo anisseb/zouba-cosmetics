@@ -1,13 +1,16 @@
 import React from 'react';
 import { NavigationContainer, NavigationIndependentTree } from '@react-navigation/native';
-import TabNavigator from './TabNavigator/TabNavigator';
+import TabNavigator from './navigation/TabNavigator';
 import { useNavigation } from 'expo-router';
 import { useEffect } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import SettingsNavigator from './Account/SettingsNavigator';
-import { RootStackParamList } from './navigation/types';
+import SettingsNavigator from './Account/Settings/SettingsNavigator';
+import { AccountStackParamList } from './types/types';
+import AccountNavigator from './navigation/AccountNavigator';
+import 'react-native-get-random-values';
+import { v4 as uuidv4 } from 'uuid';
 
-const Stack = createNativeStackNavigator<RootStackParamList>();
+const Stack = createNativeStackNavigator<AccountStackParamList>();
 
 export default function Home() {
   const navigation = useNavigation();
@@ -21,7 +24,15 @@ export default function Home() {
       <NavigationContainer>
         <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen name="Root" component={TabNavigator} />
-            <Stack.Screen 
+            <Stack.Screen
+              name="AccountScreen" 
+              component={AccountNavigator}
+              options={{ 
+                headerShown: true,
+                title: 'Shipping Addresses',
+              }}
+            />
+            <Stack.Screen
               name="Settings" 
               component={SettingsNavigator}
               options={{ 

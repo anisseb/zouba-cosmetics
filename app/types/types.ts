@@ -44,9 +44,29 @@ export type RootTabScreenProps<T extends keyof RootTabParamList> =
     NativeStackScreenProps<RootStackParamList>
   >;
 
+export type AccountStackParamList = {
+  Root: undefined;
+  Settings: undefined;
+  AccountScreen: undefined;
+  ShippingAddresses: undefined;
+  AddEditAddress: {
+    addressId?: string;
+  };
+};
+
 export type SearchScreenProps = NativeStackScreenProps<SearchStackParamList | HomeStackParamList | CategoriesStackParamList, 'SearchResults'>;
 export type HomeScreenProps = NativeStackScreenProps<HomeStackParamList, 'HomeScreen'>;
 export type CategoriesScreenProps = NativeStackScreenProps<CategoriesStackParamList, 'CategoriesList'>;
 export type SubCategoryProductsScreenProps = NativeStackScreenProps<CategoriesStackParamList, 'SubCategoryProducts'>;
 export type AccountScreenProps = NativeStackScreenProps<RootStackParamList>;
 export type SettingsScreenProps = NativeStackScreenProps<SettingsStackParamList, 'SettingsList'>;
+
+export type ShippingAddressesScreenProps = NativeStackScreenProps<
+  AccountStackParamList,
+  'ShippingAddresses'
+>;
+
+export type AddEditAddressScreenProps = NativeStackScreenProps<
+  AccountStackParamList,
+  'AddEditAddress'
+>;

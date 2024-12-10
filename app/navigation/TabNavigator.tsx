@@ -5,11 +5,11 @@ import { Ionicons } from '@expo/vector-icons';
 
 import HomeScreen from '../Home/HomeScreen';
 import SearchScreen from '../Search/SearchScreen';
-import CategoriesNavigator from '../Categories/CategoriesNavigator';
+import CategoriesNavigator from './CategoriesNavigator';
 import CartScreen from '../Cart/CartScreen';
 import AccountScreen from '../Account/AccountScreen';
 import SearchHeader from '../Search/SearchHeader';
-import { RootTabParamList, HomeStackParamList } from '../navigation/types';
+import { RootTabParamList, HomeStackParamList } from '../types/types';
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
 const Stack = createNativeStackNavigator<HomeStackParamList>();

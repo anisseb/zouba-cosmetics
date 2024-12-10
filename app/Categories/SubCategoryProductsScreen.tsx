@@ -5,7 +5,7 @@ import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import FilterBar from './FilterBar';
 import ProductList from './ProductList';
 import { FilterOptions } from '../types';
-import { CategoriesStackParamList } from './CategoriesNavigator';
+import { CategoriesStackParamList } from '../navigation/CategoriesNavigator';
 
 type Props = NativeStackScreenProps<CategoriesStackParamList, 'SubCategoryProducts'>;
 

@@ -37,3 +37,16 @@ export interface FilterOptions {
     max: number | null;
   };
 }
+
+export interface ShippingAddress {
+  id: string;
+  fullName: string;
+  streetAddress: string;
+  apartment?: string;
+  city: string;
+  state: string;
+  zipCode: string;
+  country: string;
+  phone: string;
+  isDefault: boolean;
+}

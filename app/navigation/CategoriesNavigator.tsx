@@ -1,7 +1,7 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import CategoriesScreen from './CategoriesScreen';
-import SubCategoryProductsScreen from './SubCategoryProductsScreen';
+import CategoriesScreen from '../Categories/CategoriesScreen';
+import SubCategoryProductsScreen from '../Categories/SubCategoryProductsScreen';
 import SearchHeader from '../Search/SearchHeader';
 
 export type CategoriesStackParamList = {

@@ -6,7 +6,7 @@ import CategorySidebar from './CategorySidebar';
 import SubCategoryGrid from './SubCategoryGrid';
 import { Category } from '../types';
 import { CATEGORIES } from '../data/categories';
-import { CategoriesStackParamList } from './CategoriesNavigator';
+import { CategoriesStackParamList } from '../navigation/CategoriesNavigator';
 
 type CategoriesScreenNavigationProp = NativeStackNavigationProp<
   CategoriesStackParamList,

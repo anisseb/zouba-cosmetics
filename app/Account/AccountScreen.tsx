@@ -3,11 +3,11 @@ import { View, Text, StyleSheet } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import { RootStackParamList } from '../navigation/types';
+import { AccountStackParamList } from '../types/types';
 import MenuItem from './MenuItem';
 import { useTranslation } from 'react-i18next';
 
-type AccountScreenNavigationProp = NativeStackNavigationProp<RootStackParamList>;
+type AccountScreenNavigationProp = NativeStackNavigationProp<AccountStackParamList>;
 
 const AccountScreen: React.FC = () => {
   const navigation = useNavigation<AccountScreenNavigationProp>();
@@ -35,7 +35,7 @@ const AccountScreen: React.FC = () => {
         <MenuItem 
           icon="location-outline" 
           title={t('account.shippingAddress')} 
-          onPress={() => {}}
+          onPress={() => navigation.navigate('AccountScreen')}
         />
         <MenuItem 
           icon="card-outline" 
